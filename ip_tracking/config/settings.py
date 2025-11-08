@@ -99,6 +99,35 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
+# ============================================
+# CELERY CONFIGURATION
+# ============================================
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'UTC'
+
+# ============================================
+# CELERY BEAT SCHEDULE (When to run tasks)
+# ============================================
+from celery.schedules import crontab
+
+CELERY_BEAT_SCHEDULE = {
+    'detect-ip-anomalies': {
+        'task': 'ip_tracking.tasks.detect_anomalies',
+        'schedule': crontab(minute=0),  # Every hour at :00
+        'options': {
+            'expires': 3300,  # Task expires after 55 minutes
+        }
+    },
+    'cleanup-old-logs': {
+        'task': 'ip_tracking.tasks.cleanup_old_logs',
+        'schedule': crontab(hour=2, minute=0),  # Daily at 2 AM
+    }
+}
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
