@@ -1,0 +1,61 @@
+# Django and Core Dependencies
+Django==5.2.8
+djangorestframework==3.14.0
+drf-yasg==1.21.7
+
+# Database
+psycopg2-binary==2.9.9  # PostgreSQL adapter
+dj-database-url==2.1.0  # Database URL parsing
+
+# Celery and Task Queue
+celery==5.5.3
+redis==7.0.1
+kombu==5.5.4
+amqp==5.3.1
+billiard==4.2.2
+vine==5.1.0
+
+# Caching
+django-redis==6.0.0
+
+# Security and Rate Limiting
+django-ratelimit==4.1.0
+django-ipware==7.0.1
+
+# HTTP and Requests
+requests==2.32.5
+urllib3==2.5.0
+certifi==2025.10.5
+charset-normalizer==3.4.4
+idna==3.11
+
+# Production Server
+gunicorn==21.2.0
+whitenoise==6.6.0  # Static file serving
+
+# Utilities
+python-dateutil==2.9.0.post0
+packaging==25.0
+pytz==2024.1
+
+# CLI and Interaction
+click==8.3.0
+click-didyoumean==0.3.1
+click-plugins==1.1.1.2
+click-repl==0.3.0
+prompt_toolkit==3.0.52
+wcwidth==0.2.14
+
+# Environment Variables
+python-decouple==3.8
+python-dotenv==1.0.0
+
+# Monitoring and Error Tracking (Optional)
+# sentry-sdk==1.40.0
+
+# Additional Django Extensions (Optional)
+# django-extensions==3.2.3
+# django-cors-headers==4.3.1
+
+# For development only (comment out in production)
+# django-debug-toolbar==4.2.0
